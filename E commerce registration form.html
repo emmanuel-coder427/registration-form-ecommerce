@@ -1,0 +1,158 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration Form</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Form container */
+        .form-container {
+            background: #ffffff;
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        /* Form header */
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        /* Form groups */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        /* Inputs and selects */
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #007bff;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Note text */
+        .note {
+            font-size: 13px;
+            text-align: center;
+            margin-top: 12px;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 450px) {
+            .form-container {
+                width: 90%;
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Customer Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fname">Full Name *</label>
+                <input type="text" id="fname" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="e.g., +1 555 555 5555">
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address</label>
+                <textarea id="address" rows="3" placeholder="Enter your address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender *</label>
+                <select id="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm">Confirm Password *</label>
+                <input type="password" id="confirm" placeholder="Re-enter password" required>
+            </div>
+            <button type="submit">Register</button>
+            <p class="note">By registering, you agree to our terms and conditions.</p>
+        </form>
+    </div>
+
+    <script>
+        // Simple password validation
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            const confirm = document.getElementById('confirm').value;
+            if(password !== confirm) {
+                alert("Passwords do not match!");
+                e.preventDefault();
+            } else {
+                alert("Registration Successful!");
+            }
+        });
+    </script>
+</body>
+</html>
